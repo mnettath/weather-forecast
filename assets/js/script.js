@@ -61,49 +61,31 @@ function searchWeather() {
         for (var i = 0; i < data.list.length; i++) {
           var date = new Date(data.list[i].dt * 1000);
           // convert timestamp to date
-          var dateElement = document.createElement("h4");
-          dateElement.textContent = date;
-          fiveDayForecast.append(dateElement);
-          // need to display the date
-          var temp = document.createElement("p");
-          temp.textContent =
-            "Current Temperature: " + data.list[i].main.temp + " °F";
-          fiveDayForecast.append(temp);
+          if (
+            date.getHours() === 12 &&
+            date.getMinutes() === 0 &&
+            date.getSeconds() === 0
+          ) {
+            var dateElement = document.createElement("h4");
+            dateElement.textContent = date;
+            fiveDayForecast.append(dateElement);
+            // need to display the date
+            var temp = document.createElement("p");
+            temp.textContent =
+              "Current Temperature: " + data.list[i].main.temp + " °F";
+            fiveDayForecast.append(temp);
 
-          var humidity = document.createElement("p");
-          humidity.textContent =
-            "Humidity: " + data.list[i].main.humidity + "%";
-          fiveDayForecast.append(humidity);
+            var humidity = document.createElement("p");
+            humidity.textContent =
+              "Humidity: " + data.list[i].main.humidity + "%";
+            fiveDayForecast.append(humidity);
 
-          var windSpeed = document.createElement("p");
-          windSpeed.textContent =
-            "Wind speed: " + data.list[i].wind.speed + " mph";
-          fiveDayForecast.append(windSpeed);
+            var windSpeed = document.createElement("p");
+            windSpeed.textContent =
+              "Wind speed: " + data.list[i].wind.speed + " mph";
+            fiveDayForecast.append(windSpeed);
+          }
         }
       });
   }
 }
-
-// var fiveDay =
-//   "https://api.openweathermap.org/data/2.5/forecast?q=denver&appid=d914748315fe496635f1fbcef2e646fc&units=imperial";
-
-// function getApi(fiveDay) {
-//   fetch(fiveDay)
-//     .then(function (response) {
-//       console.log(response.status); // returns 200, success
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       console.log(data.list);
-//       for (var i = 0; i < data.list.length; i++) {
-//         var date = document.createElement("h3");
-//         date.textContent = data.list[i].dt_txt;
-//         forecastContainer.append(date);
-//         var temp = document.createElement("p");
-//         temp.textContent = data.list[i].main.temp;
-//         date.append(temp);
-//       }
-//     });
-// } // returns temp for every 3 hours
-
-// getApi(fiveDay);
