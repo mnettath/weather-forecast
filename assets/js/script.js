@@ -1,38 +1,43 @@
 // console.log("Hello");
 
-var forecastContainer = document.getElementById("forecast");
+var searchButton = document.getElementById("searchButton");
+var currentForecast = document.getElementById("currentForecast");
 
-var currentWeather =
-  "https://api.openweathermap.org/data/2.5/weather?q=denver&appid=d914748315fe496635f1fbcef2e646fc&units=imperial";
-// only works when looking up one word cities
+searchButton.addEventListener("click", searchWeather);
 
-function getApi(currentWeather) {
-  fetch(currentWeather)
+function searchWeather() {
+  var cityName = document.getElementById("cityInput").value;
+  console.log(cityName);
+
+  const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=d914748315fe496635f1fbcef2e646fc&units=imperial`; // must use backticks so that cityName will be placed in the apiUrl when user hits submit
+
+  fetch(apiUrl)
     .then(function (response) {
-      console.log(response.status); // returns 200, success
+      console.log(response.status);
+      // returns a 200 which means it was a success
       return response.json();
     })
     .then(function (data) {
       console.log(data);
+      // clears the previous currentForecast searched for
+      currentForecast.innerHTML = "";
       var cityName = document.createElement("h3");
       cityName.textContent = data.name;
-      forecastContainer.append(cityName);
+      currentForecast.append(cityName);
       // need to display the date
       var temp = document.createElement("p");
       temp.textContent = "Current Temperature: " + data.main.temp + " °F";
-      forecastContainer.append(temp);
+      currentForecast.append(temp);
 
       var humidity = document.createElement("p");
       humidity.textContent = "Humidity: " + data.main.humidity + "%";
-      forecastContainer.append(humidity);
+      currentForecast.append(humidity);
 
       var windSpeed = document.createElement("p");
       windSpeed.textContent = "Wind speed: " + data.wind.speed + " mph";
-      forecastContainer.append(windSpeed);
+      currentForecast.append(windSpeed);
     });
 }
-
-getApi(currentWeather);
 
 // var fiveDay =
 //   "https://api.openweathermap.org/data/2.5/forecast?q=denver&appid=d914748315fe496635f1fbcef2e646fc&units=imperial";
