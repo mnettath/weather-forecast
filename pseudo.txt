@@ -1,0 +1,12 @@
+current weather - only weather for today
+5 day / 3 hour forecast 
+use both  
+
+geocoding API option, gives alternative options, use the one with city name 
+will need to do this for both APIs (5 day and current)
+
+sign in, create an account 
+get API key free 
+
+https://api.openweathermap.org/data/2.5/weather?q=denver&appid=d914748315fe496635f1fbcef2e646fc
+returns error 401, may have to wait a couple hours
