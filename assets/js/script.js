@@ -4,6 +4,7 @@ var forecastContainer = document.getElementById("forecast");
 
 var currentWeather =
   "https://api.openweathermap.org/data/2.5/weather?q=denver&appid=d914748315fe496635f1fbcef2e646fc&units=imperial";
+// only works when looking up one word cities
 
 function getApi(currentWeather) {
   fetch(currentWeather)
@@ -16,9 +17,18 @@ function getApi(currentWeather) {
       var cityName = document.createElement("h3");
       cityName.textContent = data.name;
       forecastContainer.append(cityName);
+      // need to display the date
       var temp = document.createElement("p");
-      temp.textContent = data.main.temp;
-      cityName.append(temp);
+      temp.textContent = "Current Temperature: " + data.main.temp + " °F";
+      forecastContainer.append(temp);
+
+      var humidity = document.createElement("p");
+      humidity.textContent = "Humidity: " + data.main.humidity + "%";
+      forecastContainer.append(humidity);
+
+      var windSpeed = document.createElement("p");
+      windSpeed.textContent = "Wind speed: " + data.wind.speed + " mph";
+      forecastContainer.append(windSpeed);
     });
 }
 
