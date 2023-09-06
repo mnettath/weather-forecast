@@ -1,7 +1,8 @@
 // console.log("Hello");
 
-var searchButton = document.getElementById("searchButton");
 var searchBar = document.getElementById("searchBar");
+var searchButton = document.getElementById("searchButton");
+var searchHistory = document.getElementById("searchHistory");
 var currentForecast = document.getElementById("currentForecast");
 var fiveDayForecast = document.getElementById("fiveDayForecast");
 
@@ -25,11 +26,13 @@ function searchWeather() {
 
     localStorage.setItem("cityInput", JSON.stringify(userInputArray));
 
+    searchHistory.innerHTML = null;
+
     for (i = 0; i < userInputArray.length; i++) {
       var searchHistoryCity = document.createElement("button");
 
       searchHistoryCity.textContent = userInputArray[i].city;
-      searchBar.append(searchHistoryCity);
+      searchHistory.append(searchHistoryCity);
     }
   }
   // clears the previous currentForecast and fiveDayForecast searched for
