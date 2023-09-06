@@ -12,6 +12,7 @@ function searchWeather() {
 
   // clears the previous currentForecast searched for
   currentForecast.innerHTML = "";
+  fiveDayForecast.innerHTML = "";
 
   searchCurrentWeather(cityName);
   searchFiveDay(cityName);
@@ -71,8 +72,7 @@ function searchWeather() {
             fiveDayForecast.append(dateElement);
             // need to display the date
             var temp = document.createElement("p");
-            temp.textContent =
-              "Current Temperature: " + data.list[i].main.temp + " °F";
+            temp.textContent = "Temperature: " + data.list[i].main.temp + " °F";
             fiveDayForecast.append(temp);
 
             var humidity = document.createElement("p");
