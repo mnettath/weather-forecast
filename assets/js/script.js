@@ -1,6 +1,7 @@
 // console.log("Hello");
 
 var searchButton = document.getElementById("searchButton");
+var searchBar = document.getElementById("searchBar");
 var currentForecast = document.getElementById("currentForecast");
 var fiveDayForecast = document.getElementById("fiveDayForecast");
 
@@ -10,7 +11,28 @@ function searchWeather() {
   var cityName = document.getElementById("cityInput").value;
   console.log(cityName);
 
-  // clears the previous currentForecast searched for
+  addCitytoHistory(cityName);
+
+  function addCitytoHistory() {
+    console.log("I am in the add city to search history");
+    var userInputArray = JSON.parse(localStorage.getItem("cityInput")) || [];
+
+    var userInput = {
+      city: cityName,
+    };
+
+    userInputArray.push(userInput);
+
+    localStorage.setItem("cityInput", JSON.stringify(userInputArray));
+
+    for (i = 0; i < userInputArray.length; i++) {
+      var searchHistoryCity = document.createElement("button");
+
+      searchHistoryCity.textContent = userInputArray[i].city;
+      searchBar.append(searchHistoryCity);
+    }
+  }
+  // clears the previous currentForecast and fiveDayForecast searched for
   currentForecast.innerHTML = "";
   fiveDayForecast.innerHTML = "";
 
