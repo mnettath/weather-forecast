@@ -62,6 +62,12 @@ function searchCurrentWeather(cityName) {
       cityName.textContent = data.name;
       currentForecast.append(cityName);
 
+      var date = new Date();
+      var dateElement = document.createElement("h4");
+      dateElement.textContent = date;
+      currentForecast.append(dateElement);
+      // need to display the date
+
       var icon = document.createElement("img");
       icon.setAttribute(
         "src",
