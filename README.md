@@ -10,11 +10,9 @@ N/A
 
 ## Usage
 
-Provide instructions and examples for use. Include screenshots as needed.
+To use this weather app, a user can type in the city they wish to see the weather for. Once they click on the search button, they will see a new button showing the city they just searched. Below, they will see the date, current temperature, humidity and windspeed. The weather app will also show the data for the next 5 days as well. The user can repeat the process and look at as many cities as they want. They can also click the buttons that populate each time to go back to the city's weather.
 
-To add a screenshot, create an `assets/images` folder in your repository and upload your screenshot to it. Then, using the relative file path, add it to your README using the following syntax:
-
-![alt text](assets/images/screenshot.png)
+![Screenshot of weather app](assets/images/screenshot.png)
 
 ## Credits
 
