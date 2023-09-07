@@ -58,6 +58,7 @@ function searchCurrentWeather(cityName) {
     .then(function (data) {
       currentForecast.innerHTML = "";
       console.log(data);
+
       var cityName = document.createElement("h3");
       cityName.textContent = data.name;
       currentForecast.append(cityName);
@@ -100,6 +101,7 @@ function searchFiveDay(cityName) {
     .then(function (data) {
       fiveDayForecast.innerHTML = "";
       console.log(data);
+
       var cityName = document.createElement("h3");
       cityName.textContent = data.city.name;
       fiveDayForecast.append(cityName);

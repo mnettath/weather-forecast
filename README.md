@@ -2,12 +2,7 @@
 
 ## Description
 
-Provide a short description explaining the what, why, and how of your project. Use the following questions as a guide:
-
-- What was your motivation?
-- Why did you build this project? (Note: the answer is not "Because it was a homework assignment.")
-- What problem does it solve?
-- What did you learn?
+I designed this weather app for travelers to view the weather forecast for multiple cities in order to plan a trip. This app makes it easy to search for cities and view the current & 5 day noon forecasts. While working on this project, I learned how to better work with APIs to extract data and display it on the page. I also learned how to pull icons from the Open Weather Map API. Working on this app gave me more practice with creating elements dynamically as well as working with local storage. A challenge that I had was getting the search history buttons to display and function properly. It turns out that I needed to add another event listener and call my other functions.
 
 ## Installation
 
