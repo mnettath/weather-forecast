@@ -61,7 +61,14 @@ function searchCurrentWeather(cityName) {
       var cityName = document.createElement("h3");
       cityName.textContent = data.name;
       currentForecast.append(cityName);
-      // need to display the date
+
+      var icon = document.createElement("img");
+      icon.setAttribute(
+        "src",
+        "https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png"
+      );
+      currentForecast.append(icon);
+
       var temp = document.createElement("p");
       temp.textContent = "Current Temperature: " + data.main.temp + " °F";
       currentForecast.append(temp);
@@ -103,6 +110,16 @@ function searchFiveDay(cityName) {
           dateElement.textContent = date;
           fiveDayForecast.append(dateElement);
           // need to display the date
+
+          var icon = document.createElement("img");
+          icon.setAttribute(
+            "src",
+            "https://openweathermap.org/img/wn/" +
+              data.list[i].weather[0].icon +
+              "@2x.png"
+          );
+          fiveDayForecast.append(icon);
+
           var temp = document.createElement("p");
           temp.textContent = "Temperature: " + data.list[i].main.temp + " °F";
           fiveDayForecast.append(temp);
