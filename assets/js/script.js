@@ -59,12 +59,20 @@ function searchCurrentWeather(cityName) {
       currentForecast.innerHTML = "";
       console.log(data);
 
-      var cityName = document.createElement("h3");
-      cityName.textContent = data.name;
-      currentForecast.append(cityName);
+      if (!cityName === data.city) {
+        alert("Info on this city cannot be found. Please try again!");
+      }
+
+      var currentWeather = document.createElement("h3");
+      currentWeather.textContent = "Current Weather: " + data.name;
+      currentForecast.append(currentWeather);
+
+      // var cityName = document.createElement("h4");
+      // cityName.textContent = data.name;
+      // currentForecast.append(cityName);
 
       var date = new Date();
-      var dateElement = document.createElement("h4");
+      var dateElement = document.createElement("h5");
       dateElement.textContent = date;
       currentForecast.append(dateElement);
       // need to display the date
@@ -102,9 +110,13 @@ function searchFiveDay(cityName) {
       fiveDayForecast.innerHTML = "";
       console.log(data);
 
-      var cityName = document.createElement("h3");
-      cityName.textContent = data.city.name;
-      fiveDayForecast.append(cityName);
+      var fiveDayWeather = document.createElement("h3");
+      fiveDayWeather.textContent = "Five Day Forecast: " + data.city.name;
+      fiveDayForecast.append(fiveDayWeather);
+
+      // var cityName = document.createElement("h3");
+      // cityName.textContent = data.city.name;
+      // fiveDayForecast.append(cityName);
 
       for (var i = 0; i < data.list.length; i++) {
         var date = new Date(data.list[i].dt * 1000);
@@ -114,7 +126,7 @@ function searchFiveDay(cityName) {
           date.getMinutes() === 0 &&
           date.getSeconds() === 0
         ) {
-          var dateElement = document.createElement("h4");
+          var dateElement = document.createElement("h5");
           dateElement.textContent = date;
           fiveDayForecast.append(dateElement);
           // need to display the date

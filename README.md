@@ -10,7 +10,7 @@ N/A
 
 ## Usage
 
-To use this weather app, a user can type in the city they wish to see the weather for. Once they click on the search button, they will see a new button showing the city they just searched. Below, they will see the date, current temperature, humidity and windspeed. The weather app will also show the data for the next 5 days as well. The user can repeat the process and look at as many cities as they want. They can also click the buttons that populate each time to go back to the city's weather.
+To use this weather app, a user can type in the city they wish to see the weather for. Once they click on the search button, they will see a new button showing the city they just searched. Below, they will see the date, current temperature, humidity and wind speed of that city. The weather app will also show the data for the next 5 days. The user can repeat the process and look at as many cities as they want. They can also click the buttons that populate each time to go back to the city's weather.
 
 ![Screenshot of weather app](assets/images/screenshot.png)
 
