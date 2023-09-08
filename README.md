@@ -14,6 +14,8 @@ To use this weather app, a user can type in the city they wish to see the weathe
 
 ![Screenshot of weather app](./assets/images/weatherapp.png)
 
+Link to deployed app: https://mnettath.github.io/weather-forecast/
+
 ## Credits
 
 N/A
